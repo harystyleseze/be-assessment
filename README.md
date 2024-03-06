@@ -1,66 +1,76 @@
+# Bookstore API
 
-# Project: Bookstore API
-## Overview:
-Build a RESTful API for a bookstore application using Node.js, Express, and TypeScript. The API should manage books, authors, and categories. Each book has a title, author, category, publication year, and ISBN.
+## Overview
 
-## Requirements:
-### Setup:
+This project is a RESTful API for a bookstore application. It's built using Node.js, Express, TypeScript, and MongoDB. The API allows managing books, authors, and categories, providing functionalities to create, read, update, and delete (CRUD operations) for each entity.
 
-- Initialize a new Node.js project using npm or yarn.
-- Use TypeScript for your project.
-#### Express Setup:
+## Getting Started
 
-Set up an Express application with appropriate middleware.
-Include middleware for JSON parsing and logging.
+### Prerequisites
 
-#### Routes:
-Create routes for the following CRUD operations:
+- Node.js
+- npm/express/ts/express
+- MongoDB
 
-##### Books:
-- Create a new book.
-- Get a list of all books.
-- Get details of a specific book.
-- Update the details of a book.
-- Delete a book.
-  
-##### Authors:
-- Create a new author.
-- Get a list of all authors.
-- Get details of a specific author.
-- Update the details of an author.
-- Delete an author.
-  
-##### Categories:
-- Create a new category.
-- Get a list of all categories.
-- Get details of a specific category.
-- Update the details of a category.
-- Delete a category.
+## Running the Application
 
-#### Data Storage:
-- Use an in-memory array or a simple database (e.g., MongoDB or MySQL) to store books, authors, and categories.
-- Implement appropriate relationships between books, authors, and categories.
+### Compile TypeScript to JavaScript:
 
-#### Validation:
-- Validate the input data for creating and updating books, authors, and categories.
-- Include appropriate error handling and return meaningful error messages.
+`npm run build`
 
-#### Testing:
-Write unit tests for at least two routes using a testing framework of your choice (Jest, Mocha, etc.).
+### Start the server:
 
-#### Documentation:
-- Provide clear documentation on how to run your application and tests.
-- Include a brief overview of the project structure and any important design decisions.
-- Use Postman to document your endpoints
+`npm start`
+The server will start running on http://localhost:3000.
 
-#### Bonus Points:
-- Implement sorting and filtering options for the list of books, authors, and categories.
-- Add pagination for the list endpoints.
-- Include user authentication middleware.
+### Running the Application
 
-#### Submission Guidelines:
-- Fork this repository and commit your code.
-- Include a README.md file with instructions on how to run the application and tests.
-- Create a pull request with your completed assessment.
+`npm run dev`
 
+### Testing the Application
 
+`npm test`
+
+## API Documentation
+
+### Author
+
+- Create an author - `POST /api/authors`
+- Get All authors - `GET /api/authors`
+- Get author by ID - `GET /api/authors/:id`
+- Update a author - `PUT /api/authors/:id`
+- Delete a author - `DELETE /api/authors/:id`
+
+### Books
+
+- Create a Book - `POST /api/books`
+- Get All Books - `GET /api/books`
+- Get Book by ID - `GET /api/books/:id`
+- Update a Book - `PUT /api/books/:id`
+- Delete a Book - `DELETE /api/books/:id`
+
+Note: Creating a book requires valid `author` and `category` IDs referring to existing entities in the database.
+
+### Categories
+
+- Create a Categories - `POST /api/categories`
+- Get All Categories - `GET /api/categories`
+- Get Category by ID - `GET /api/categories/:id`
+- Update a Categories - `PUT /api/categories/:id`
+- Delete a Categories - `DELETE /api/categories/:id`
+
+## Project Structure
+
+- `src/`
+  - `models/`: Mongoose models for entities.
+  - `routes/`: Endpoint definitions.
+  - `app.ts`: Application setup and entry point.
+- `tests/`: Test suite for the API (Still pending bacause I am currently facing an issue parsing the test file and the deadline is tight)
+- `jest.config.js`: Jest configuration.
+- `tsconfig.json`: TypeScript compiler options.
+
+## Design Decisions
+
+1. Modular Architecture: Separation of concerns among models and routes for maintainability.
+2. TypeScript and npm: Provides type safety and enhances developer experience.
+3. Testing: Integration tests ensure reliability of the API endpoints.
